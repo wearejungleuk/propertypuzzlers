@@ -1,0 +1,226 @@
+@mixin button-background($color) {
+  background: radial-gradient(circle 10px at top left, #0000 98%, $color) top left,
+  radial-gradient(circle 10px at top right, #0000 98%, $color) top right,
+  radial-gradient(circle 10px at bottom left, #0000 98%, $color) bottom left,
+  radial-gradient(circle 10px at bottom right, #0000 98%, $color) bottom right;
+  background-size: 51% 51%;
+  background-repeat: no-repeat;
+}
+
+@mixin placeholder {
+  &::-webkit-input-placeholder {@content}
+  &:-moz-placeholder           {@content}
+  &::-moz-placeholder          {@content}
+  &:-ms-input-placeholder      {@content}
+}
+
+@mixin absolute-fill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@mixin min-width-1920 {
+  @media screen and (min-width: 1920px) {
+    @content;
+  }
+}
+
+@mixin min-width-1600 {
+  @media screen and (min-width: 1600px) {
+    @content;
+  }
+}
+
+@mixin min-width-1440 {
+  @media screen and (min-width: 1440px) {
+    @content;
+  }
+}
+
+@mixin min-width-1200 {
+  @media screen and (min-width: 1200px) {
+    @content;
+  }
+}
+
+@mixin max-width-1200 {
+  @media screen and (max-width: 1200px) {
+    @content;
+  }
+}
+
+@mixin max-width-1100 {
+  @media screen and (max-width: 1100px) {
+    @content;
+  }
+}
+
+@mixin min-width-1100 {
+  @media screen and (min-width: 1100px) {
+    @content;
+  }
+}
+
+@mixin max-width-380 {
+  @media screen and (max-width: 380px) {
+    @content;
+  }
+}
+
+@mixin min-width-380 {
+  @media screen and (min-width: 380px) {
+    @content;
+  }
+}
+
+@mixin max-width-400 {
+  @media screen and (max-width: 400px) {
+    @content;
+  }
+}
+
+@mixin min-width-400 {
+  @media screen and (min-width: 400px) {
+    @content;
+  }
+}
+
+@mixin max-width-1024 {
+  @media screen and (max-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin min-width-1024 {
+  @media screen and (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin min-width-992 {
+  @media screen and (min-width: 992px) {
+    @content;
+  }
+}
+
+@mixin max-width-992 {
+  @media screen and (max-width: 992px) {
+    @content;
+  }
+}
+
+@mixin min-width-800 {
+  @media screen and (min-width: 800px) {
+    @content;
+  }
+}
+
+@mixin max-width-800 {
+  @media screen and (max-width: 800px) {
+    @content;
+  }
+}
+
+@mixin min-width-768 {
+  @media screen and (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin max-width-768 {
+  @media screen and (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin min-width-568 {
+  @media screen and (min-width: 568px) {
+    @content;
+  }
+}
+
+@mixin max-width-568 {
+  @media screen and (max-width: 568px) {
+    @content;
+  }
+}
+
+@mixin min-width-420 {
+  @media screen and (min-width: 420px) {
+    @content;
+  }
+}
+
+@mixin max-width-420 {
+  @media screen and (max-width: 420px) {
+    @content;
+  }
+}
+
+@mixin max-height-750-min-width-768 {
+  @media screen and (min-width: 768px) and (max-height: 750px) {
+    @content;
+  }
+}
+
+@mixin max-height-850-min-width-768 {
+  @media screen and (min-width: 768px) and (max-height: 850px) {
+    @content;
+  }
+}
+
+@mixin max-height-850-min-width-992 {
+  @media screen and (min-width: 992px) and (max-height: 850px) {
+    @content;
+  }
+}
+
+@mixin max-height-700-max-width-420 {
+  @media screen and (max-width: 420px) and (max-height: 700px) {
+    @content;
+  }
+}
+
+@mixin min-height-1080-min-width-1920 {
+  @media screen and (min-width: 1920px) and (min-height: 1080px) {
+    @content;
+  }
+}
+
+@mixin max-height-1080-min-width-1440 {
+  @media screen and (min-width: 1440px) and (max-height: 1080px) {
+    @content;
+  }
+}
+
+@mixin font-sizes($base, $sm, $md, $lg, $xl, $xxl, $xxxl ) {
+  font-size: $base;
+  @include min-width-568 {
+    font-size: $sm;
+  }
+  @include min-width-768 {
+    font-size: $md;
+  }
+  @include min-width-992 {
+    font-size: $lg;
+  }
+  @include min-width-1200 {
+    font-size: $xl;
+  }
+  @include min-width-1440 {
+    font-size: $xxl;
+  }
+  @include min-width-1920 {
+    font-size: $xxxl;
+  }
+}
+
+@mixin center() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

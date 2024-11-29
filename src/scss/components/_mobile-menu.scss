@@ -1,0 +1,12 @@
+.nav-overlay {
+  height: 100%;
+  position: fixed;
+  width: 0;
+  max-width: 300px;
+  top: 0;
+  right: 0;
+  z-index: 99;
+  transition: all .6s cubic-bezier(.77, 0, .175, 1) .4s;
+  overflow: auto;
+  overflow-x: hidden;
+}

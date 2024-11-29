@@ -1,0 +1,44 @@
+// Fade in on scroll
+.js-fade-in {
+	@media only screen and (min-width: 992px) {
+		opacity: 0;
+		transition: all ease 900ms;
+
+		&.is-intersecting {
+			opacity: 1;
+		}
+	}
+}
+
+.js-fade-up {
+	@media only screen and (min-width: 992px) {
+		opacity: 0;
+		transition: all ease 900ms;
+		transform: translateY(30px);
+
+		&.is-intersecting {
+			opacity: 1;
+			transform: translateY(0px);
+		}
+	}
+}
+
+@keyframes marquee {
+	0% {
+		transform: translate3d(0%, 0, 0);
+	}
+
+	100% {
+		transform: translate3d(-100%, 0, 0);
+	}
+}
+
+@keyframes marquee-inverted {
+	0% {
+		transform: translate3d(-100%, 0, 0);
+	}
+
+	100% {
+		transform: translate3d(0%, 0, 0);
+	}
+}

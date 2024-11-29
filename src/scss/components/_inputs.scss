@@ -1,0 +1,88 @@
+input[type=text], input[type=number], input[type=email], textarea {
+  border: 1px solid $mainBrandColour;
+  width: 100%;
+  display: block;
+  resize: none;
+  outline: none;
+  padding: rem-calc(20px);
+  margin-top: rem-calc(8px);
+  background-color: transparent;
+  color: $mainBrandColour;
+  font-size: rem-calc(18px);
+  border-radius: 3px;
+  @include placeholder {
+	color: $mainBrandColour !important;
+	font-size: rem-calc(18px);
+	font-family: $mainFont;
+	@media (max-width: 768px) {
+	  font-size: rem-calc(16px);
+	}
+  }
+  @media (max-width: 768px) {
+	font-size: rem-calc(16px);
+	padding: rem-calc(15px);
+  }
+}
+
+label {
+  color: $mainBrandColour;
+  display: block;
+  margin-bottom: rem-calc(35px);
+  font-size: rem-calc(16px);
+  text-transform: uppercase;
+  @media (max-width: 768px) {
+	font-size: rem-calc(14px);
+	margin-bottom: rem-calc(25px);
+  }
+}
+
+.gdpr-terms {
+  input[type=checkbox], input[type=radio] {
+	appearance: none;
+  }
+  .wpcf7-list-item {
+	margin: 0;
+	label {
+	  text-transform: none;
+	  display: flex;
+	  -webkit-box-pack: justify;
+	  -ms-flex-pack: justify;
+	  justify-content: space-between;
+	  position: relative;
+	  padding: rem-calc(0 0 0 60px);
+	  cursor: pointer;
+	  top: 32px;
+	  &:before, &:after {
+		content: '';
+		display: inline-block;
+		border-radius: 3px;
+		transition: $transitionBase;
+		position: absolute;
+	  }
+	  &:before {
+		width: 40px;
+		height: 40px;
+		background-color: transparent;
+		border-radius: 3px;
+		border: 1px solid $mainBrandColour;
+		transition: $transitionBase;
+		left: 0;
+	  }
+	  &:after {
+		width: 30px;
+		height: 30px;
+		top: 5px;
+		left: 5px;
+		background-color: transparent;
+	  }
+	  &.checked {
+		&:after {
+		  background-color: $mainBrandColour;
+		}
+	  }
+	  @media (max-width: 768px) {
+		top: 0;
+	  }
+	}
+  }
+}
