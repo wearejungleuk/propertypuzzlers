@@ -1,29 +1,42 @@
-import Lenis from '@studio-freight/lenis';
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+	anchor.addEventListener('click', function (e) {
+		e.preventDefault();
 
-export const smoothScroll = () => {
-	const lenis = new Lenis({
-		duration: 1.2,
-		easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // https://www.desmos.com/calculator/brs54l4xou
-		direction: 'vertical', // vertical, horizontal
-		gestureDirection: 'vertical', // vertical, horizontal, both
-		smooth: true,
-		mouseMultiplier: 1,
-		smoothTouch: false,
-		touchMultiplier: 2,
-		infinite: false,
+		const headerHeight = document.querySelector('#header').offsetHeight;
+		const additionalOffset = 10; // Adjust if necessary
+		const targetId = this.getAttribute('href').substring(1);
+		const targetElement = document.getElementById(targetId);
+
+		if (targetElement) {
+			const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+			const offsetPosition = targetPosition - headerHeight - additionalOffset;
+
+			window.scrollTo({
+				top: offsetPosition,
+				behavior: 'smooth'
+			});
+		}
 	});
+});
 
-	// Get scroll value
-	lenis.on('scroll', ({ scroll, limit, velocity, direction, progress }) => {
-		// console.log({ scroll, limit, velocity, direction, progress });
-	});
+// Page load scroll adjustment with delay
+window.addEventListener('load', function () {
+	if (window.location.hash) {
+		setTimeout(() => {
+			const headerHeight = document.querySelector('#header').offsetHeight;
+			const additionalOffset = 10; // Adjust if necessary
+			const targetId = window.location.hash.substring(1);
+			const targetElement = document.getElementById(targetId);
 
-	function raf(time) {
-		lenis.raf(time);
-		requestAnimationFrame(raf);
+			if (targetElement) {
+				const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+				const offsetPosition = targetPosition - headerHeight - additionalOffset;
+
+				window.scrollTo({
+					top: offsetPosition,
+					behavior: 'smooth'
+				});
+			}
+		}, 600); // Delay in milliseconds
 	}
-
-	requestAnimationFrame(raf);
-};
-
-smoothScroll();
+});

@@ -32,3 +32,7 @@ require_once('functions/acf-functions.php');
 require_once('functions/misc.php');
 require_once('functions/menus.php');
 require_once('functions/image-sizes.php');
+
+//CPT
+require_once('functions/cpt/properties.php');
+require_once('functions/cpt/staff.php');

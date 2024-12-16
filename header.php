@@ -14,8 +14,7 @@ $bodyScripts = get_field('body_scripts', 'option');
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <!-- Fonts -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <script src="https://kit.fontawesome.com/7f308f2602.js" crossorigin="anonymous"></script>    <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     <!-- Stylesheets -->
     <!-- IE 6/7/8 support for HTML5 elements -->
@@ -45,30 +44,43 @@ $bodyScripts = get_field('body_scripts', 'option');
     echo $bodyScripts;
 }
 ?>
-<header class="header">
+<header id="header"
+        x-data="{ sticky: false, showPopup: false }"
+        x-init="window.addEventListener('scroll', () => sticky = window.scrollY > 50)"
+        :class="{ 'bg-[#020304]': sticky, 'bg-transparent': !sticky }"
+        class="py-[15px] transition-all duration-300 header fixed top-0 left-0 z-[999] w-[100vw] text-white">
     <div class="container clearfix">
-        <?php if ($logo) {
-            ?>
-            <div class="header__logo">
-                <a href="<?php echo home_url('/') ?>">
-                    <div id="logo-wrap">
-                        <?php $elem->drawImage($logo['url'], $logo['alt']); ?>
+        <div class="flex justify-between items-center">
+            <div class="header__left">
+                <?php if ($logo) {
+                    ?>
+                    <div class="header__logo">
+                        <a href="<?php echo home_url('/') ?>">
+                            <div id="logo-wrap"
+                                 :class="{ 'max-w-[150px]': sticky, 'max-w-[190px]': !sticky }"
+                                 class="w-full transition-all duration-300">
+                                <?php $elem->drawImage($logo['url'], $logo['alt'], 'w-full'); ?>
+                            </div>
+                        </a>
                     </div>
-                </a>
+                    <?php
+                }
+                ?>
             </div>
-            <?php
-        }
-        ?>
-        <nav id="main-nav">
-            <?php
-            wp_nav_menu([
-                    'theme_location' => 'header-menu',
-                    'menu_class' => 'main-menu'
-            ]);
-            ?>
-        </nav>
-        <a id="nav-toggle" class="hamburger" href="#"><span></span></a>
+            <div class="header__right">
+                <nav id="main-nav">
+                    <?php
+                    wp_nav_menu([
+                        'theme_location' => 'header-menu',
+                        'menu_class' => 'main-menu'
+                    ]);
+                    ?>
+                </nav>
+                <a id="nav-toggle" class="hamburger" href="#"><span></span></a>
+            </div>
+        </div>
     </div>
 </header><!-- END header -->
 <main>
+    <?php get_template_part('components/hero'); ?>
     <div id="content-wrapper" class="content-wrapper">

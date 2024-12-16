@@ -116,10 +116,6 @@ a:hover {
  * contexts in Firefox 4+, Safari 5, and Chrome.
  */
 
-h1 {
-    font-size: 2em;
-    margin: 0.67em 0;
-}
 
 /**
  * Address styling not present in IE 8/9, Safari 5, and Chrome.
@@ -157,18 +153,6 @@ hr {
     -moz-box-sizing: content-box;
     box-sizing: content-box;
     height: 0;
-}
-
-/*
- * proper formatting (http://blog.fontdeck.com/post/9037028497/hyphens)
-*/
-
-p {
-  -webkit-hyphens: auto;
-  -epub-hyphens:   auto;
-  -moz-hyphens:    auto;
-  hyphens:         auto;
-
 }
 
 /*

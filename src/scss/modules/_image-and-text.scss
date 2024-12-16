@@ -1,0 +1,10 @@
+.image-and-text {
+	&__wrap {
+		width: calc(100% + 50px);
+		position: relative;
+		z-index: 1;
+		&--right {
+			margin-right: -50px;
+		}
+	}
+}

@@ -1,0 +1,15 @@
+.header {
+	.main-menu {
+		margin: 0;
+		li {
+			display: inline-block;
+			margin-right: rem-calc(40px);
+			&:last-child {
+				margin-right: 0;
+			}
+			a {
+				font-weight: $semi;
+			}
+		}
+	}
+}

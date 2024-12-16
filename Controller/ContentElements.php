@@ -16,7 +16,7 @@ class ContentElements {
     public function drawReadMore($url, $target, $title) {
         $title = ($title != '') ? $title : 'Find out more';
         echo "
-		<a class=\"read-more\" href=\"{$url}\" target=\"{$target}\">{$title}</a>
+		<a class=\"read-more text-[#B08D57] text-[18px] uppercase leading-none tracking-wide\" href=\"{$url}\" target=\"{$target}\">{$title}<span class='ml-[30px]'><i class=\"fa-sharp fa-light fa-arrow-right\"></i></span></a>
 		";
     }
     
@@ -69,7 +69,7 @@ class ContentElements {
     }
 
     public function drawAboveTitle($title) {
-        echo "<div class='above-title-wrap'><p class=\"above-title\">{$title}</p></div>";
+        echo "<div class='above-title-wrap'><p class=\"above-title mb-[5px] font-bold text-[#B08D57] text-[22px] font-bold uppercase leading-none tracking-widest\">{$title}</p></div>";
     }
 
     public function drawAccordion($array) {

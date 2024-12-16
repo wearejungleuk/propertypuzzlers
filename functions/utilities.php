@@ -57,3 +57,11 @@ function getWpqueryTax($postType, $taxonomy, $term, $noOfPosts = null, $offset =
 
     return $the_query->posts;
 }
+
+function drawId($id = null) {
+    if ($id) {
+        return "id=\"{$id}\"";
+    } else {
+        return null;
+    }
+}
