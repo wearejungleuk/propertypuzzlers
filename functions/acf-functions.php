@@ -27,3 +27,32 @@ add_filter( 'walker_nav_menu_start_el', 'hrt_span_to_nav_menu', 10, 4 );
 //}
 //
 //add_action( 'acf/init', 'my_acf_init' );
+
+function populate_staff_radio_field($field) {
+    // Ensure this is the correct field
+    if ($field['key'] === 'field_676044e04af78') {
+        // Reset choices
+        $field['choices'] = [];
+
+        // Query all staff members
+        $staff_query = new WP_Query(array(
+            'post_type'      => 'staff',
+            'posts_per_page' => -1,
+            'order'          => 'ASC',
+            'orderby'        => 'title',
+        ));
+
+        if ($staff_query->have_posts()) {
+            while ($staff_query->have_posts()) {
+                $staff_query->the_post();
+
+                // Use post ID as value and post title as label
+                $field['choices'][get_the_ID()] = get_the_title();
+            }
+            wp_reset_postdata();
+        }
+    }
+
+    return $field;
+}
+add_filter('acf/load_field', 'populate_staff_radio_field');

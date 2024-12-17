@@ -36,3 +36,4 @@ require_once('functions/image-sizes.php');
 //CPT
 require_once('functions/cpt/properties.php');
 require_once('functions/cpt/staff.php');
+require_once('functions/cpt/testimonials.php');
